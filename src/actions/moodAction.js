@@ -15,3 +15,9 @@ export const takeNap = (naps) => ({
   type: TAKE_NAP,
   payload: naps
 });
+
+export const STUDY =  'STUDY';
+export const study = (studies) => ({
+  type: STUDY,
+  payload: studies
+});

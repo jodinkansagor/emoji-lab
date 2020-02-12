@@ -1,4 +1,4 @@
-import { drinkCoffee, DRINK_COFFEE, eatSnack, EAT_SNACK, takeNap, TAKE_NAP } from "./moodAction"
+import { drinkCoffee, DRINK_COFFEE, eatSnack, EAT_SNACK, takeNap, TAKE_NAP, study, STUDY } from './moodAction';
 
 describe('mood action creators', () => {
   it('creates a drink coffee action', () => {
@@ -25,6 +25,15 @@ describe('mood action creators', () => {
     expect(action).toEqual({
       type: TAKE_NAP,
       payload: 2
+    });
+  });
+
+  it('creates a study action', () => {
+    const action = study(3);
+
+    expect(action).toEqual({
+      type: STUDY,
+      payload: 3
     });
   });
 });
