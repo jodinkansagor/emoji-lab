@@ -34,5 +34,5 @@ describe('mood reducer', () => {
 
     const newState = reducer(initialState, action);
     expect(newState).toEqual({ studies: 2 });
-  })
+  });
 });

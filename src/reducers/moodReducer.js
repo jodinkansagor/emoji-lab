@@ -3,8 +3,7 @@ import {
   EAT_SNACK,
   TAKE_NAP,
   STUDY,
-  takeNap
- } from '../actions/moodAction';
+} from '../actions/moodAction';
 
 export default function reducer(state, action) {
   switch(action.type){
@@ -16,5 +15,7 @@ export default function reducer(state, action) {
       return { ...state, naps: state.naps + 1 };
     case STUDY:
       return { ...state, studies: state.studies + 1 };
+    default:
+      return state;
   }
 }
