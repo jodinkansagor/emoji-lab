@@ -1,4 +1,4 @@
-import { drinkCoffee } from '../actions/moodAction';
+import { drinkCoffee, eatSnack } from '../actions/moodAction';
 import reducer from './moodReducer';
 
 describe('mood reducer', () => {
@@ -12,5 +12,11 @@ describe('mood reducer', () => {
 
   });
 
-  it(handles)
+  it('handles the EAT_SNACK case', () => {
+    const action = eatSnack();
+    const initialState = { snacks: 3 };
+
+    const newState = reducer(initialState, action);
+    expect(newState).toEqual({ snacks: 4 });
+  });
 });
