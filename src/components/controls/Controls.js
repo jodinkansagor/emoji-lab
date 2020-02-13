@@ -5,7 +5,7 @@ import styles from './Controls.css';
 const Controls = ({ actions, handleSelection }) => (
   <section className={styles.Controls}>
     {actions.map(({ name, text, count }) => (
-      <button key={name} onClick={() => handleSelection(name)}>
+      <button key={text} onClick={() => handleSelection(name)}>
         {text || name} {!!count && `- ${count}`}
       </button>
     ))}
@@ -14,7 +14,7 @@ const Controls = ({ actions, handleSelection }) => (
 
 Controls.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.func.isRequired,
     text: PropTypes.string
   })).isRequired,
   handleSelection: PropTypes.func.isRequired

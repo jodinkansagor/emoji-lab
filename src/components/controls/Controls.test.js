@@ -5,16 +5,15 @@ import Controls from './Controls';
 describe('Controls component', () => {
   let wrapper;
   let handleSelection;
+  let stuffFn = () => {};
   beforeEach(() => {
     const actions = [
-      { name: 'DO_STUFF', text: 'stuff' },
-      { name: 'other' }
+      { name: stuffFn, text: 'stuff' },
+      { name: () => {}, text: 'morepoop' }
     ];
     handleSelection = jest.fn();
 
-    wrapper = shallow(<Controls
-      actions={actions}
-      handleSelection={handleSelection} />);
+    wrapper = shallow(<Controls actions={actions}handleSelection={handleSelection} />);
   });
 
   it('renders Controls', () => {
@@ -22,8 +21,8 @@ describe('Controls component', () => {
   });
 
   it('handlesSelection with the action name', () => {
-    wrapper.findWhere(el => el.key() === 'DO_STUFF').simulate('click');
-    expect(handleSelection).toHaveBeenCalledWith('DO_STUFF');
+    wrapper.findWhere(el => el.key() === 'stuff').simulate('click');
+    expect(handleSelection).toHaveBeenCalledWith(stuffFn);
   });
 });
   

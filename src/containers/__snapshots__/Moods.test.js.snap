@@ -25,6 +25,11 @@ exports[`Moods container matches a snapshot 1`] = `
           "stateName": "studies",
           "text": "Study",
         },
+        Object {
+          "name": [Function],
+          "stateName": "exercises",
+          "text": "Exercise",
+        },
       ]
     }
     handleSelection={[Function]}
