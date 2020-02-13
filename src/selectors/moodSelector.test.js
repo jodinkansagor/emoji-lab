@@ -1,4 +1,4 @@
-import { isTired, isHyper, isEducated, isHungry } from "./moodSelector";
+import { isTired, isHyper, isEducated, isHungry, getFace } from './moodSelector';
 
 describe('mood selectors', () => {
   it('is tired when it is supposed to be tired', () => {
@@ -34,5 +34,34 @@ describe('mood selectors', () => {
     const hungry = isHungry(state);
 
     expect(hungry).toEqual(false);
-  })
+  });
+
+  it('is very angry if tired and hungry', () => {
+    expect(getFace({ coffees: 0, naps: 0, snacks: 0 })).toEqual('🤬');
+  });
+
+  it('is sick if hyper and hungry', () => {
+    expect(getFace({ coffees: 4, snacks: 0 })).toEqual('🤮');
+  });
+
+  it('is sleeping if tired', () => {
+    expect(getFace({ coffees: 4, snacks: 0 })).toEqual('🤮');
+  });
+
+  it('is crazy if hyper', () => {
+    expect(getFace({ coffees: 4, naps: 0, snacks: 0, studies: 0 })).toEqual('🤮');
+  });
+
+  it('is mindblown if educated', () => {
+    expect(getFace({ coffees: 1, naps: 0, snacks: 1, studies: 3 })).toEqual('🤯');
+  });
+
+  it('is angry if hungry', () => {
+    expect(getFace({ coffees: 1, naps: 0, snacks: 0, studies: 0 })).toEqual('😡');
+  });
+
+  it('is happy if not tired, hungry, educated, or hungry', () => {
+    expect(getFace({ coffees: 1, naps: 0, snacks: 1, studies: 0 })).toEqual('😀');
+  });
 });
+
