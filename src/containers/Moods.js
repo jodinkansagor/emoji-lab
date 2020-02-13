@@ -4,7 +4,7 @@ import Face from '../components/face/Face';
 import { drinkCoffee, eatSnack, takeNap, study, exercise } from '../actions/moodAction';
 import reducer from '../reducers/moodReducer';
 import { getFace } from '../selectors/moodSelector';
-// import { isTired, isHyper, isEducation, isHungry, getFace } from '../selectors';
+
 
 const actions = [
   { name: drinkCoffee, text: 'Drink Coffee', stateName: 'coffees' },
@@ -32,14 +32,22 @@ const Moods = () => {
     if (name === exercise) return dispatch(exercise());
   };
 
+  const getActions = (state) => {
+    return actions.map(action => ({
+      ...action,
+      count: state[action.stateName]
+    }));
+  };
+
+  const controlActions = getActions(mood);
   const face = getFace(mood);
 
   return (
     <>
-      <Controls actions={actions} handleSelection={(name) => handleSelection(name)} />
+      <Controls actions={controlActions} handleSelection={(name) => handleSelection(name)} />
       <Face emoji={face} />
     </>
-  )
+  );
 
 };
 
