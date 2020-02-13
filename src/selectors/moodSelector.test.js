@@ -1,4 +1,4 @@
-import { isTired, isHyper } from "./moodSelector";
+import { isTired, isHyper, isEducated } from "./moodSelector";
 
 describe('mood selectors', () => {
   it('is tired when it is supposed to be tired', () => {
@@ -14,4 +14,12 @@ describe('mood selectors', () => {
 
     expect(hyper).toEqual(true);
   });
+
+  it('is educated when it is supposedto be educated', () => {
+    const state = { studies: 10 };
+    const educated = isEducated(state);
+
+    expect(educated).toEqual(true);
+  })
+  
 });
