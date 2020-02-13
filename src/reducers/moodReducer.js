@@ -3,6 +3,7 @@ import {
   EAT_SNACK,
   TAKE_NAP,
   STUDY,
+  EXERCISE,
 } from '../actions/moodAction';
 
 export default function reducer(state, action) {
@@ -15,6 +16,8 @@ export default function reducer(state, action) {
       return { ...state, naps: state.naps + 1 };
     case STUDY:
       return { ...state, studies: state.studies + 1 };
+    case EXERCISE:
+      return { ... state, exercises: state.exercises + 1 };
     default:
       return state;
   }

@@ -17,3 +17,9 @@ export const STUDY =  'STUDY';
 export const study = () => ({
   type: STUDY
 });
+
+
+export const EXERCISE = 'EXERCISE';
+export const exercise = () => ({
+  type: EXERCISE
+});

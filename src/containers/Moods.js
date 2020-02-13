@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
-import { drinkCoffee, eatSnack, takeNap, study } from '../actions/moodAction';
+import { drinkCoffee, eatSnack, takeNap, study, exercise } from '../actions/moodAction';
 import reducer from '../reducers/moodReducer';
 import { getFace } from '../selectors/moodSelector';
 // import { isTired, isHyper, isEducation, isHungry, getFace } from '../selectors';
@@ -11,6 +11,7 @@ const actions = [
   { name: eatSnack, text: 'Snack', stateName: 'snacks' },
   { name: takeNap, text: 'Nap', stateName: 'naps' },
   { name: study, text: 'Study', stateName: 'studies' },
+  { name: exercise, text: 'Exercise', stateName: 'exercises' }
 ];
 
 
@@ -19,7 +20,8 @@ const Moods = () => {
     coffees: 0,
     snacks: 0,
     naps: 0,
-    studies: 0
+    studies: 0,
+    exercises: 0
   });
 
   const handleSelection = (name) => {
@@ -27,6 +29,7 @@ const Moods = () => {
     if (name === eatSnack) return dispatch(eatSnack());
     if (name === takeNap) return dispatch(takeNap());
     if (name === study) return dispatch(study());
+    if (name === exercise) return dispatch(exercise());
   };
 
   const face = getFace(mood);
