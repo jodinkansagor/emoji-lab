@@ -2,38 +2,34 @@ import { drinkCoffee, DRINK_COFFEE, eatSnack, EAT_SNACK, takeNap, TAKE_NAP, stud
 
 describe('mood action creators', () => {
   it('creates a drink coffee action', () => {
-    const action = drinkCoffee(1);
+    const action = drinkCoffee();
 
     expect(action).toEqual({
-      type: DRINK_COFFEE,
-      payload: 1
+      type: DRINK_COFFEE
     });
   });
 
   it('creates a eat snack action', () => {
-    const action = eatSnack(2);
+    const action = eatSnack();
 
     expect(action).toEqual({
-      type: EAT_SNACK,
-      payload: 2
+      type: EAT_SNACK
     });
   });
 
   it('creates a take nap action', () => {
-    const action = takeNap(2);
+    const action = takeNap();
 
     expect(action).toEqual({
-      type: TAKE_NAP,
-      payload: 2
+      type: TAKE_NAP
     });
   });
 
   it('creates a study action', () => {
-    const action = study(3);
+    const action = study();
 
     expect(action).toEqual({
-      type: STUDY,
-      payload: 3
+      type: STUDY
     });
   });
 });
