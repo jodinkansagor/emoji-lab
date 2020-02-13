@@ -1,4 +1,4 @@
-import { isTired, isHyper, isEducated } from "./moodSelector";
+import { isTired, isHyper, isEducated, isHungry } from "./moodSelector";
 
 describe('mood selectors', () => {
   it('is tired when it is supposed to be tired', () => {
@@ -20,6 +20,19 @@ describe('mood selectors', () => {
     const educated = isEducated(state);
 
     expect(educated).toEqual(true);
-  })
+  });
   
+  it('is hungry when its supposed to be hungry', () => {
+    const state = { snacks: 0 };
+    const hungry = isHungry(state);
+
+    expect(hungry).toEqual(true);
+  });
+
+  it('is not hungry when it has been fed', () => {
+    const state = { snacks: 3 };
+    const hungry = isHungry(state);
+
+    expect(hungry).toEqual(false);
+  })
 });
