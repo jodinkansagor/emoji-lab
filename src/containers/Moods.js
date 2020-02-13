@@ -15,25 +15,25 @@ const actions = [
 
 
 const Moods = () => {
-  const [mood, dispatch] = useReducer(reducer, { 
+  const [mood, dispatch] = useReducer(reducer, {
     coffees: 0,
     snacks: 0,
     naps: 0,
-    studies: 0 
+    studies: 0
   });
 
   const handleSelection = (name) => {
-    const desiredAction =  actions.forEach(action => {
-      if(action.name === name) return action;
-    });
-    return dispatch(desiredAction.name);
+    if (name === drinkCoffee) return dispatch(drinkCoffee());
+    if (name === eatSnack) return dispatch(eatSnack());
+    if (name === takeNap) return dispatch(takeNap());
+    if (name === study) return dispatch(study());
   };
 
   const face = getFace(mood);
 
   return (
     <>
-      <Controls actions={actions} handleSelection={() => handleSelection(name)} />
+      <Controls actions={actions} handleSelection={(name) => handleSelection(name)} />
       <Face emoji={face} />
     </>
   )
